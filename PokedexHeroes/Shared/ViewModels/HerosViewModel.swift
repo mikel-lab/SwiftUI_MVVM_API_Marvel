@@ -13,7 +13,7 @@ final class viewModelHeros: ObservableObject {
     @Published var heros : [Result]?
     @Published var status = Status.none
     
-    var listaHeros = Set<AnyCancellable>()
+    var suscriptors = Set<AnyCancellable>()
     
     init(testing:Bool = false){
         if (testing){
@@ -38,7 +38,8 @@ final class viewModelHeros: ObservableObject {
                 
                 return $0.data
             }
-            .decode(type: [Result].self, decoder: JSONDecoder())
+            //.decode(type: [Result].self, decoder: JSONDecoder())
+            .decode(type: MarvelModel.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion{
@@ -50,7 +51,7 @@ final class viewModelHeros: ObservableObject {
             } receiveValue: { data in
                 self.heros = data
             }
-            .store(in: &listaHeros)
+            .store(in: &suscriptors)
 
         
     }
