@@ -14,7 +14,7 @@ struct HeroesView: View {
     var body: some View {
         NavigationView{
             List{
-                if let hero = viewModel.heros {
+                if let hero = viewModel.heros?.data.results {
                     ForEach(hero){data in
                         NavigationLink {
                             //Destination
