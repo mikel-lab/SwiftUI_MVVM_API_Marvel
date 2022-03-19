@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 
 final class viewModelHeros: ObservableObject {
-    @Published var heros : [Result]?
+    @Published var heros : MarvelModel?
     @Published var status = Status.none
     
     var suscriptors = Set<AnyCancellable>()
@@ -55,12 +55,6 @@ final class viewModelHeros: ObservableObject {
 
         
     }
-    
-    
-    
-    
-    
-    
     
     
    func getHerosUIDesing() {

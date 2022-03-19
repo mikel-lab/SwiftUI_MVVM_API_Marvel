@@ -11,7 +11,7 @@ let server = "https://gateway.marvel.com"
 let privateKey = "ecf701eefbd402a623ed575b76a10c8d1b2b2d10"
 let publicKey = "0e9907e2f4eca5a6bd9e2c673d30447d"
 let ts = "1"
-let apiKey = publicKey
+let apikey = publicKey
 let hash = "e840a33b1efa5d31e5b60c38a8854cf7"
 
 struct HTTPMethods{
@@ -33,7 +33,7 @@ struct BaseNetwork {
     
     
     func getSessionHeros() -> URLRequest{
-        let urlCad :  String = "\(server)\(endpoints.heroList.rawValue)?apiKey=\(apiKey)&ts=\(ts)&hash=\(hash)"
+        let urlCad :  String = "\(server)\(endpoints.heroList.rawValue)?apiKey=\(apikey)&ts=\(ts)&hash=\(hash)"
         //Creamos la Request
         var request =  URLRequest(url: URL(string: urlCad)!)
         request.httpMethod = HTTPMethods.get
@@ -43,7 +43,7 @@ struct BaseNetwork {
     }
     
     func getSessionHerosDetail() -> URLRequest{
-        let urlCad :  String = "\(server)\(endpoints.heroList.rawValue)?apiKey=\(apiKey)&ts=\(ts)&hash=\(hash)"
+        let urlCad :  String = "\(server)\(endpoints.heroList.rawValue)?apiKey=\(apikey)&ts=\(ts)&hash=\(hash)"
         //Creamos la Request
         var request =  URLRequest(url: URL(string: urlCad)!)
         request.httpMethod = HTTPMethods.get
