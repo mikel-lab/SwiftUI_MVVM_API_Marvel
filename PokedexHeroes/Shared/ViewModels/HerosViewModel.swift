@@ -79,8 +79,9 @@ final class viewModelHeros: ObservableObject {
                           description: "AIM is a terrorist organization bent on destroying the world.",
                           thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/6/20/52602f21f29ec", thumbnailExtension: Extension.jpg),
                           resourceURI: "http://gateway.marvel.com/v1/public/characters/1009144")
-                          
-        
-        self.heros  =  [hero1, hero2,hero3]
+       
+       let data = DataMarvel(offset: 0, limit: 0, total: 3, count: 3, results: [hero1, hero2,hero3])
+       
+       self.heros = MarvelModel(code: 200, status: "success", copyright: "2020", attributionText: "", attributionHTML: "", etag: "", data: data)
     }
 }
