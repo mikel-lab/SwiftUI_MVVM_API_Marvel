@@ -33,7 +33,7 @@ struct BaseNetwork {
     
     
     func getSessionHeros() -> URLRequest{
-        let urlCad :  String = "\(server)\(endpoints.heroList.rawValue)?apiKey=\(apikey)&ts=\(ts)&hash=\(hash)"
+        let urlCad :  String = "\(server)\(endpoints.heroList.rawValue)?apikey=\(apikey)&ts=\(ts)&hash=\(hash)"
         //Creamos la Request
         var request =  URLRequest(url: URL(string: urlCad)!)
         request.httpMethod = HTTPMethods.get

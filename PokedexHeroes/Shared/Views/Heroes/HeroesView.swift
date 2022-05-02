@@ -20,8 +20,8 @@ struct HeroesView: View {
                             //Destination
                             //HeroesDetailView()
                         } label: {
-                            //HeroesRowView()
-                            Text(data.name ?? "Heroe random")
+                            HeroesRowView(hero: data)
+                            //Text(data.name ?? "Heroe random")
                         }
 
                     }
