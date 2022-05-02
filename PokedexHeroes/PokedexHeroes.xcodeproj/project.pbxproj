@@ -140,6 +140,7 @@
 		2427F59927D3E01200E38935 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2468EDD527EB9E6F0005E192 /* Detalle */,
 				2461D00027DD50080037C8AB /* Heroes */,
 				2427F57827D3DE2F00E38935 /* ContentView.swift */,
 			);
@@ -151,9 +152,16 @@
 			children = (
 				2457122827DFC2F1000DEA23 /* HeroesView.swift */,
 				2457122A27DFC322000DEA23 /* HeroesRowView.swift */,
-				2457122C27DFE2D7000DEA23 /* HeroesDetailView.swift */,
 			);
 			path = Heroes;
+			sourceTree = "<group>";
+		};
+		2468EDD527EB9E6F0005E192 /* Detalle */ = {
+			isa = PBXGroup;
+			children = (
+				2457122C27DFE2D7000DEA23 /* HeroesDetailView.swift */,
+			);
+			path = Detalle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,6 +411,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37479BS767;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "PokedexHeroes--iOS--Info.plist";
@@ -434,6 +443,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37479BS767;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "PokedexHeroes--iOS--Info.plist";

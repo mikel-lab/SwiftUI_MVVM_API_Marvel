@@ -41,9 +41,13 @@ struct Thumbnail: Codable {
     }
     
     
-    // modificacion para cuando estemos diseando la descarga de photos
-    func getUrlImage(type:photoType = photoType.portrait) -> String {
+    // modificacion para cuando estemos diseñando la descarga de photos
+   /* func getUrlImage(type:photoType = photoType.portrait) -> String {
         return "\(path)/\(type.rawValue).\(thumbnailExtension)"
+    }*/
+    
+    func getUrlThumbnail() -> String {
+        return "\(path).\(thumbnailExtension)"
     }
     
 }

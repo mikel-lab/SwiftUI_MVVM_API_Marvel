@@ -56,7 +56,7 @@ final class viewModelHeros: ObservableObject {
         
     }
     
-    func getHeroUIDesing(){
+    func getHeroUIDesing() -> Result {
         return Result(id: 1017100,
                       title: "",
                       name: "A-Bomb (HAS)",

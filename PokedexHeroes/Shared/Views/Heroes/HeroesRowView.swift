@@ -12,7 +12,7 @@ struct HeroesRowView: View {
     @StateObject private var viewmodel = PhotoViewModel()
     
     var body: some View {
-        VStack{
+        LazyVStack {
             
             if let photo = viewmodel.photo {
                 photo
@@ -30,20 +30,17 @@ struct HeroesRowView: View {
                     .opacity(0.6)
             }
             
-            Text(if let name = hero.name {
-                .font(.title2)
-                .foregroundColor(.gray)
-                .bold()
-            }else{
-                name ="Heroe random"
+            if ((hero.name) != nil){
+                Text(hero.name!)
                     .font(.title2)
                     .foregroundColor(.gray)
                     .bold()
-            } )
+            }
                 
         }
         .onAppear{
-            viewmodel.loadImage(url: "\(hero.thumbnail.getUrlImage(photoType.portrait))")
+            //viewmodel.loadImage(url: "\(hero.thumbnail.getUrlImage(photoType.portrait))")
+            viewmodel.loadImage(url: hero.thumbnail.getUrlThumbnail())
         }
     }
 }
@@ -51,6 +48,6 @@ struct HeroesRowView: View {
 struct HeroesRowView_Previews: PreviewProvider {
     static var previews: some View {
         HeroesRowView(hero: viewModelHeros(testing: true).getHeroUIDesing())
-            .previewLayout(.fixed(Width: 350, heigth: 350))
+            .previewLayout(.fixed(width: 350, height: 350))
     }
 }
