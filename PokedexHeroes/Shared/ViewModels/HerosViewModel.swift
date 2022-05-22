@@ -11,9 +11,11 @@ import SwiftUI
 
 final class viewModelHeros: ObservableObject {
     @Published var heros : MarvelModel?
+    @Published var detailSeries : MarvelModel?
     @Published var status = Status.none
     
     var suscriptors = Set<AnyCancellable>()
+    var series = Set<AnyCancellable>()
     
     init(testing:Bool = false){
         if (testing){
@@ -54,6 +56,34 @@ final class viewModelHeros: ObservableObject {
             .store(in: &suscriptors)
 
         
+    }
+    
+    func getHeroDetail(hero:Int){
+        //TODO llamar al metodo de la llamada API de series de BaseNetwork
+        URLSession.shared
+            .dataTaskPublisher(for: BaseNetwork().getSessionHerosDetail(idHero: hero))
+            .tryMap{
+                guard let response = $0.response as? HTTPURLResponse,
+                      response.statusCode == 200 else {
+                          //valido si a fallado para lanzar ERROR
+                          throw URLError(.badServerResponse)
+                      }
+                
+                return $0.data
+            }
+            .decode(type: MarvelModel.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion{
+                case .finished:
+                    self.status = .loaded
+                case .failure:
+                    self.status = .error(error: "Error buscando la lista de series en las que sale el héroe")
+                }
+            } receiveValue: { data in
+                self.detailSeries = data
+            }
+            .store(in: &series)
     }
     
     func getHeroUIDesing() -> Result {

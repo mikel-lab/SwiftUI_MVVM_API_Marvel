@@ -18,7 +18,7 @@ struct HeroesView: View {
                     ForEach(hero){data in
                         NavigationLink {
                             //Destination
-                            //HeroesDetailView()
+                            HeroesDetailView(hero: data)
                         } label: {
                             HeroesRowView(hero: data)
                             //Text(data.name ?? "Heroe random")

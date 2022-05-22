@@ -25,7 +25,7 @@ struct HTTPMethods{
 //endpoints
 enum endpoints : String{
     case heroList = "/v1/public/characters"
-    case heroDetail = "/v1/public/characters/{characterId}/series"
+  
 }
 
 
@@ -42,8 +42,9 @@ struct BaseNetwork {
         return request
     }
     
-    func getSessionHerosDetail() -> URLRequest{
-        let urlCad :  String = "\(server)\(endpoints.heroList.rawValue)?apiKey=\(apikey)&ts=\(ts)&hash=\(hash)"
+    func getSessionHerosDetail(idHero:Int) -> URLRequest{
+        //TODO configurar la llamada API de detalle de postman
+        let urlCad :  String = "\(server)\(endpoints.heroList.rawValue)/\(idHero)/series?apikey=\(apikey)&ts=\(ts)&hash=\(hash)"
         //Creamos la Request
         var request =  URLRequest(url: URL(string: urlCad)!)
         request.httpMethod = HTTPMethods.get
